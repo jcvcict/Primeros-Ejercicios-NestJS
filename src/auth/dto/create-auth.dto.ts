@@ -1,9 +1,6 @@
-
 export class CreateAuthDto {
+    email: string;
+    name:string;
+    password:string; 
 
-   
-   
-    // Los roles y si es activo lo modificamos nosotros.
-}  
-
-
+}
