@@ -21,7 +21,19 @@ export class AuthService {
 
     
     
-    return newUser.save();
+    return true;
+  }
+
+  async login(createAuthDto: CreateAuthDto){
+
+    const {username,password} = createAuthDto;
+    
+    const user =  await this.userModel.find({username: username}).exec();
+    if(user.length>0 && bcryptjs.compareSync(password,user[0].password))
+    return true;
+    else
+    return 'No existe';
+   
   }
 
   findAll() {
